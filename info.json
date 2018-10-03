@@ -1,0 +1,11 @@
+{
+  "name": "RadioNetwork",
+  "version": "0.0.1",
+  "title": "RadioNetwork",
+  "author": "Reika",
+  "contact": "",
+  "homepage": "",
+  "factorio_version" : "0.16",
+  "description": "Adds the ability to send any and all circuit network signals wirelessly.",
+  "dependencies": ["base >= 0.16.0"]
+}

@@ -1,0 +1,51 @@
+data:extend({
+        {
+            type = "int-setting",
+            name = "tick-rate",
+            setting_type = "startup",
+            default_value = 30,
+            order = "r",
+        },
+        {
+            type = "int-setting",
+            name = "t1-max-signals",
+            setting_type = "startup",
+            default_value = 30,
+            order = "r",
+        },
+        {
+            type = "int-setting",
+            name = "t2-max-signals",
+            setting_type = "startup",
+            default_value = 60,
+            order = "r",
+        },
+        {
+            type = "int-setting",
+            name = "t3-max-signals",
+            setting_type = "startup",
+            default_value = 100,
+            order = "r",
+        },
+        {
+            type = "int-setting",
+            name = "t1-range",
+            setting_type = "startup",
+            default_value = 800,
+            order = "r",
+        },
+        {
+            type = "int-setting",
+            name = "t2-range",
+            setting_type = "startup",
+            default_value = 2000,
+            order = "r",
+        },
+        {
+            type = "int-setting",
+            name = "repeater-range",
+            setting_type = "startup",
+            default_value = 600,
+            order = "r",
+        },
+})
