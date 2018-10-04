@@ -14,8 +14,10 @@ end
 local function createTransmitter(tier, power)
 	local name = "radio-transmitter-" .. tier
 	local lockey = "entity-name.radio-transmitter"
+	local desckey = "item-description.radio-transmitter"
 	if tier == 3 then
 		lockey = "entity-name.satellite-transmitter"
+		desckey = "item-description.satellite-transmitter"
 	end
 
 	data:extend(
@@ -82,7 +84,7 @@ local function createTransmitter(tier, power)
 			icon = "__RadioNetwork__/graphics/icons/" .. name .. ".png",
 			icon_size = 32,
 			localised_name = {lockey, tier},
-			localised_description = {"item-description.radio-transmitter", Config.maxRange[tier]},
+			localised_description = {desckey, Config.maxRange[tier]},
 			flags = {"goes-to-quickbar"},
 			subgroup = "circuit-network",
 			order = "c[radio]-a[" .. name .. "]",
@@ -280,6 +282,14 @@ data:extend(
 		order = "c[radio]-c[repeater]",
 		place_result = "radio-repeater",
 		stack_size = 10,
-	}
+	},
 }
 )
+
+local item = table.deepcopy(data.raw.item.satellite)
+item.name = "comms-satellite"
+item.icon = "__RadioNetwork__/graphics/icons/satellite.png"
+item.localised_description = {"item-description.comms-satellite", Config.satelliteChannels}
+item.rocket_launch_product = nil
+
+data:extend({item})

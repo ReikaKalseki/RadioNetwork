@@ -35,6 +35,8 @@ data:extend(
         name = "circuit-transmitters-2",
         icon = "__RadioNetwork__/graphics/tech.png",
         icon_size = 128,
+		localised_name = {"technology-name.circuit-transmitters-2"},
+		localised_description = {"technology-description.circuit-transmitters-2"},
         effects = 
         {
             {
@@ -66,6 +68,8 @@ data:extend(
         name = "circuit-receivers-2",
         icon = "__RadioNetwork__/graphics/tech.png",
         icon_size = 128,
+		localised_name = {"technology-name.circuit-receivers-2"},
+		localised_description = {"technology-description.circuit-receivers-2"},
         effects = 
         {
             {
@@ -77,7 +81,7 @@ data:extend(
 		upgrade = true,
         unit =
         {
-            count = 100,
+            count = 75,
             ingredients = 
             {
                 {"science-pack-1", 1},
@@ -93,6 +97,8 @@ data:extend(
         name = "circuit-receivers-3",
         icon = "__RadioNetwork__/graphics/tech.png",
         icon_size = 128,
+		localised_name = {"technology-name.circuit-receivers-3"},
+		localised_description = {"technology-description.circuit-receivers-3"},
         effects = 
         {
             {
@@ -104,12 +110,13 @@ data:extend(
 		upgrade = true,
         unit =
         {
-            count = 100,
+            count = 150,
             ingredients = 
             {
                 {"science-pack-1", 1},
                 {"science-pack-2", 1},
                 {"science-pack-3", 1},
+                {"production-science-pack", 1},
             },
             time = 45
         },
@@ -120,11 +127,17 @@ data:extend(
         name = "circuit-transmitters-3",
         icon = "__RadioNetwork__/graphics/tech.png",
         icon_size = 128,
+		localised_name = {"technology-name.circuit-transmitters-3"},
+		localised_description = {"technology-description.circuit-transmitters-3"},
         effects = 
         {
             {
                 type = "unlock-recipe",
                 recipe = "radio-transmitter-3"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "comms-satellite"
             },
         },
         prerequisites = {"circuit-transmitters-2", "rocket-silo", "effectivity-module-3"},

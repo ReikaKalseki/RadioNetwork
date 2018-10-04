@@ -1,8 +1,10 @@
 if data.raw.item["advanced-processing-unit"] then
 	table.insert(data.raw.recipe["radio-transmitter-3"].ingredients, {"advanced-processing-unit", 9})
+	table.insert(data.raw.recipe["comms-satellite"].ingredients, {"advanced-processing-unit", 20})
 	table.insert(data.raw.technology["circuit-transmitters-3"].prerequisites, "advanced-electronics-3")
 else
 	table.insert(data.raw.recipe["radio-transmitter-3"].ingredients, {"processing-unit", 18})
+	table.insert(data.raw.recipe["comms-satellite"].ingredients, {"processing-unit", 50})
 end
 
 if data.raw.item["aluminium-plate"] then
@@ -45,11 +47,19 @@ else
 end
 
 if data.raw.item["lithium-ion-battery"] then
-	table.insert(data.raw.recipe["radio-receiver-2"].ingredients, {"lithium-ion-battery", 15})
-	table.insert(data.raw.recipe["radio-receiver-3"].ingredients, {"silver-zinc-battery", 10})
-	table.insert(data.raw.technology["circuit-receivers-2"].prerequisites, "battery-2")
-	table.insert(data.raw.technology["circuit-receivers-3"].prerequisites, "battery-3")
+	table.insert(data.raw.recipe["radio-receiver-3"].ingredients, {"lithium-ion-battery", 10})
+	table.insert(data.raw.technology["circuit-receivers-3"].prerequisites, "battery-2")
+	table.insert(data.raw.recipe["comms-satellite"].ingredients, {"silver-zinc-battery", 20})
 else
-	table.insert(data.raw.recipe["radio-receiver-2"].ingredients, {"battery", 30})
-	table.insert(data.raw.recipe["radio-receiver-3"].ingredients, {"battery", 40})
+	table.insert(data.raw.recipe["radio-receiver-3"].ingredients, {"battery", 25})
+	table.insert(data.raw.recipe["comms-satellite"].ingredients, {"battery", 100})
+end
+
+if data.raw.tool["logistic-science-pack"] then
+	for _,pack in pairs(data.raw.technology["circuit-receivers-3"].unit.ingredients) do
+		if pack[1] == "production-science-pack" then
+			pack[1] = "logistic-science-pack"
+		end
+	end
+	table.insert(data.raw.technology["circuit-transmitters-3"].unit.ingredients, {"logistic-science-pack", 1})
 end

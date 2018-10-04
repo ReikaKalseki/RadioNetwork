@@ -49,7 +49,7 @@ data:extend(
 			{"steel-plate", 9},
 			{"iron-stick", 6},
 			{"electronic-circuit", 9},
-			{"battery", 12},
+			{"battery", 6},
 		},
 		result = "radio-receiver-1"
 	},
@@ -62,6 +62,7 @@ data:extend(
 		{
 			{"radio-receiver-1", 1},
 			{"advanced-circuit", 9},
+			{"battery", 12},
 		},
 		result = "radio-receiver-2"
 	},
@@ -90,6 +91,18 @@ data:extend(
 			{"battery", 20},
 		},
 		result = "radio-repeater"
+	},
+	{
+		type = "recipe",
+		name = "comms-satellite",
+		enabled = false,
+		energy_required = 60,
+		ingredients = 
+		{
+			{"satellite", 1},
+			{"radio-repeater", 8},
+		},
+		result = "comms-satellite"
 	}
 }
 )

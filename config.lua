@@ -4,6 +4,8 @@ Config.tickRate = settings.startup["tick-rate"].value
 
 Config.repeaterRange = settings.startup["repeater-range"].value
 
+Config.satelliteChannels = settings.startup["satellite-channels"].value
+
 Config.maxSignals = {}
 
 Config.maxRange = {}
@@ -16,4 +18,4 @@ for i = 1,2 do
 	Config.maxRange[i] = settings.startup["t" .. i .. "-range"].value
 end
 
-Config.maxRange[3] = 999999 --infinity
+Config.maxRange[3] = -1 --infinity
