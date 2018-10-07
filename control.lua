@@ -107,16 +107,7 @@ local function onTick(event)
 				for i = 1, #wires do
 					local net = transmitter.entity.get_circuit_network(wires[i])
 					if net and net.signals then
-						mergeSignals(data, net.signals)
-					end
-				end
-				if transmitter.type == "satellite" then
-					local maxChannels = Config.satelliteChannels*transmitter.entity.force.get_item_launched("comms-satellite")
-					for i,entry in ipairs(data) do
-						if i > maxChannels then
-							playAlert(entry, "satelliteoverload", #data, maxChannels)
-							table.remove(data, i)
-						end
+						mergeSignals(transmitter, data, net.signals)
 					end
 				end
 				transmitter.signals.parameters = data

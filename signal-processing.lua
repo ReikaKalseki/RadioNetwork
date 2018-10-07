@@ -1,4 +1,5 @@
-function mergeSignals(state, signals)
+function mergeSignals(transmitter, state, signals)
+	local size = 0
     for _,signal in pairs(signals) do
         local key = signal.signal.type .. ":" .. signal.signal.name
         local previous = state[key]
@@ -6,7 +7,16 @@ function mergeSignals(state, signals)
             state[key] = {signal = signal.signal, count = signal.count}
         else
             state[key] = {signal = signal.signal, count = signal.count+previous.count}
+			size = size+1
         end
+		
+		if transmitter.type == "satellite" then
+			local maxChannels = Config.satelliteChannels*transmitter.entity.force.get_item_launched("comms-satellite")-1 -- -1 to compensate for the fact that this applies one iteration "too late"
+			if size >= maxChannels then
+				playAlert(entry, "satelliteoverload", size, maxChannels+1)
+				break
+			end
+		end
     end
 end
 

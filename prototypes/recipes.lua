@@ -87,7 +87,7 @@ data:extend(
 		{
 			{"steel-plate", 15},
 			{"iron-stick", 20},
-			{"processing-unit", 5},
+			{"advanced-circuit", 5},
 			{"battery", 20},
 		},
 		result = "radio-repeater"

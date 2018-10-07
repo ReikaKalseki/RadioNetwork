@@ -52,7 +52,7 @@ data:extend({
             type = "int-setting",
             name = "repeater-range",
             setting_type = "startup",
-            default_value = 400,
+            default_value = 600,
             order = "r",
         },
         {
