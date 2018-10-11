@@ -12,8 +12,8 @@ function mergeSignals(transmitter, state, signals)
 		
 		if transmitter.type == "satellite" then
 			local maxChannels = Config.satelliteChannels*transmitter.entity.force.get_item_launched("comms-satellite")-1 -- -1 to compensate for the fact that this applies one iteration "too late"
-			if size >= maxChannels then
-				playAlert(entry, "satelliteoverload", size, maxChannels+1)
+			if size > maxChannels then
+				playAlert(transmitter, "satelliteoverload", size, maxChannels+1)
 				break
 			end
 		end
