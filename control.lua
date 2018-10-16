@@ -127,7 +127,7 @@ local function onTick(event)
 				repeater.transmitters[id] = transmitter
 			end
 		else
-			radio.repeater[id] = nil
+			radio.repeaters[id] = nil
 		end
 	end
 	 
