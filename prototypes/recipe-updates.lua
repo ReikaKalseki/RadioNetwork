@@ -1,3 +1,15 @@
+local function addTechDependency(tech, name, fallback)
+	local val = name
+	if not data.raw.technology[val] then
+		val = fallback
+	end
+	if not data.raw.technology[val] then
+		error("Found neither primary ('" .. name .. "') nor secondary ('"  .. fallback .. "') tech dependencies for '" .. tech .. "', yet the discriminator check returned true!" .. debug.traceback())
+		return
+	end
+	table.insert(data.raw.technology[tech].prerequisites, val)
+end
+
 if data.raw.item["advanced-processing-unit"] then
 	table.insert(data.raw.recipe["radio-transmitter-3"].ingredients, {"advanced-processing-unit", 9})
 	table.insert(data.raw.recipe["comms-satellite"].ingredients, {"advanced-processing-unit", 20})
@@ -10,20 +22,23 @@ end
 if data.raw.item["aluminium-plate"] then
 	table.insert(data.raw.recipe["radio-transmitter-2"].ingredients, {"aluminium-plate", 15})
 	table.insert(data.raw.technology["circuit-transmitters-2"].prerequisites, "aluminium-processing")
+elseif data.raw.item["aluminum-plate"] then
+	table.insert(data.raw.recipe["radio-transmitter-2"].ingredients, {"aluminum-plate", 15})
+	table.insert(data.raw.technology["circuit-transmitters-2"].prerequisites, "aluminum-refining")
 else
 	table.insert(data.raw.recipe["radio-transmitter-2"].ingredients, {"steel-plate", 24})
 end
 
 if data.raw.item["titanium-plate"] then
 	table.insert(data.raw.recipe["radio-transmitter-3"].ingredients, {"titanium-plate", 12})
-	table.insert(data.raw.technology["circuit-transmitters-3"].prerequisites, "titanium-processing")
+	addTechDependency("circuit-transmitters-3", "titanium-processing", "titanium-refining")
 else
 	table.insert(data.raw.recipe["radio-transmitter-3"].ingredients, {"steel-plate", 30})
 end
 
 if data.raw.item["nickel-plate"] then
 	table.insert(data.raw.recipe["radio-receiver-2"].ingredients, {"nickel-plate", 8})
-	table.insert(data.raw.technology["circuit-receivers-2"].prerequisites, "nickel-processing")
+	addTechDependency("circuit-receivers-2", "nickel-processing", "nickel-refining")
 else
 	table.insert(data.raw.recipe["radio-receiver-2"].ingredients, {"steel-plate", 12})
 end
@@ -31,6 +46,9 @@ end
 if data.raw.item["cobalt-steel-alloy"] then
 	table.insert(data.raw.recipe["radio-receiver-3"].ingredients, {"cobalt-steel-alloy", 6})
 	table.insert(data.raw.technology["circuit-receivers-3"].prerequisites, "cobalt-processing")
+elseif data.raw.item["cobalt-plate"] then
+	table.insert(data.raw.recipe["radio-receiver-3"].ingredients, {"cobalt-plate", 6})
+	table.insert(data.raw.technology["circuit-receivers-3"].prerequisites, "cobalt-refining")
 else
 	table.insert(data.raw.recipe["radio-receiver-3"].ingredients, {"steel-plate", 15})
 end
