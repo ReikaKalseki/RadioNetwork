@@ -73,11 +73,11 @@ else
 	table.insert(data.raw.recipe["comms-satellite"].ingredients, {"battery", 100})
 end
 
-if data.raw.tool["logistic-science-pack"] then
+if data.raw.tool["bob-logistic-science-pack"] then
 	for _,pack in pairs(data.raw.technology["circuit-receivers-3"].unit.ingredients) do
 		if pack[1] == "production-science-pack" then
-			pack[1] = "logistic-science-pack"
+			pack[1] = "bob-logistic-science-pack"
 		end
 	end
-	table.insert(data.raw.technology["circuit-transmitters-3"].unit.ingredients, {"logistic-science-pack", 1})
+	table.insert(data.raw.technology["circuit-transmitters-3"].unit.ingredients, {"bob-logistic-science-pack", 1})
 end
