@@ -27,6 +27,7 @@ local function createTransmitter(tier, power)
 			name = name,
 			icon = "__RadioNetwork__/graphics/icons/" .. name .. ".png",
 			icon_size = 32,
+			icon_mipmaps = 0,
 			localised_name = {lockey, tier},
 			flags = {"placeable-player", "player-creation"},
 			minable = {mining_time = 0.75, result = name},
@@ -114,6 +115,7 @@ local function createReciever(tier)
 			name = name,
 			icon = "__RadioNetwork__/graphics/icons/radio-receiver.png",
 			icon_size = 32,
+			icon_mipmaps = 0,
 			localised_name = {"entity-name.radio-receiver", tier},
 			flags = {"placeable-player", "player-creation"},
 			minable = {mining_time = 0.75, result = name},
@@ -208,6 +210,7 @@ local function createReciever(tier)
 			name = name,
 			icon = "__RadioNetwork__/graphics/icons/radio-receiver.png",
 			icon_size = 32,
+			icon_mipmaps = 0,
 			localised_name = {"entity-name.radio-receiver", tier},
 			localised_description = {"item-description.radio-receiver", Config.maxSignals[tier]},
 			flags = {},
@@ -234,6 +237,7 @@ data:extend(
         name = "radio-repeater",
         icon = "__RadioNetwork__/graphics/icons/radio-repeater.png",
         icon_size = 32,
+		icon_mipmaps = 0,
         flags = {"placeable-player", "player-creation"},
         minable = {mining_time = 0.75, result = "radio-repeater"},
         max_health = 100,
@@ -276,6 +280,7 @@ data:extend(
 		name = "radio-repeater",
 		icon = "__RadioNetwork__/graphics/icons/radio-repeater.png",
 		icon_size = 32,
+		icon_mipmaps = 0,
 		localised_description = {"item-description.radio-repeater", Config.repeaterRange},
 		flags = {},
 		subgroup = "circuit-network",
@@ -289,6 +294,8 @@ data:extend(
 local item = table.deepcopy(data.raw.item.satellite)
 item.name = "comms-satellite"
 item.icon = "__RadioNetwork__/graphics/icons/satellite.png"
+item.icon_size = 32
+item.icon_mipmaps = 0
 item.localised_description = {"item-description.comms-satellite", Config.satelliteChannels}
 item.rocket_launch_product = nil
 
