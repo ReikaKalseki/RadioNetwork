@@ -62,4 +62,13 @@ data:extend({
             default_value = 40,
             order = "r",
         },
+        {
+            type = "int-setting",
+            name = "satellite-scipacks",
+            setting_type = "startup",
+            default_value = 1000,
+            minimum_value = 0,
+            maximum_value = 2000,
+            order = "r",
+        },
 })

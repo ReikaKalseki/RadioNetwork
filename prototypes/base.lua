@@ -29,6 +29,7 @@ local function createTransmitter(tier, power)
 			icon_size = 32,
 			icon_mipmaps = 0,
 			localised_name = {lockey, tier},
+			next_upgrade = tier < 3 and "radio-transmitter-" .. (tier+1) or nil,
 			flags = {"placeable-player", "player-creation"},
 			minable = {mining_time = 0.75, result = name},
 			max_health = 150+50*tier,
@@ -116,6 +117,7 @@ local function createReciever(tier)
 			icon = "__RadioNetwork__/graphics/icons/radio-receiver.png",
 			icon_size = 32,
 			icon_mipmaps = 0,
+			next_upgrade = tier < 3 and "radio-receiver-" .. (tier+1) or nil,
 			localised_name = {"entity-name.radio-receiver", tier},
 			flags = {"placeable-player", "player-creation"},
 			minable = {mining_time = 0.75, result = name},
@@ -297,6 +299,10 @@ item.icon = "__RadioNetwork__/graphics/icons/satellite.png"
 item.icon_size = 32
 item.icon_mipmaps = 0
 item.localised_description = {"item-description.comms-satellite", Config.satelliteChannels}
-item.rocket_launch_product = nil
+if Config.satellitePacks > 0 then
+	item.rocket_launch_product = {"space-science-pack", Config.satellitePacks}
+else
+	item.rocket_launch_product = nil
+end
 
 data:extend({item})

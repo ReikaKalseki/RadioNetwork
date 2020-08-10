@@ -6,6 +6,8 @@ Config.repeaterRange = settings.startup["repeater-range"].value
 
 Config.satelliteChannels = settings.startup["satellite-channels"].value
 
+Config.satellitePacks = settings.startup["satellite-scipacks"].value
+
 Config.maxSignals = {}
 
 Config.maxRange = {}

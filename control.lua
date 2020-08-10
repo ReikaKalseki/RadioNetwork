@@ -43,7 +43,7 @@ function playAlert(entry, alert, data1, data2, data3)
 end
 
 local function isInRange(entry, receiver)
-	return entry.range <= 0 or entry.range >= math.sqrt((receiver.entity.position.x-entry.entity.position.x)^2+(receiver.entity.position.y-entry.entity.position.y)^2)
+	return entry.range <= 0 or entry.range*entry.range >= (receiver.entity.position.x-entry.entity.position.x)^2+(receiver.entity.position.y-entry.entity.position.y)^2
 end
 
 -- returns a list of transmitters that the receiver is in range of
