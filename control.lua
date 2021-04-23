@@ -73,7 +73,7 @@ local function onEntityCreated(event)
 		entity.operable = false
 		entity.get_or_create_control_behavior().connect_to_logistic_network = false
 		entity.get_control_behavior().circuit_condition = cachedSignal
-		global.radio.transmitters[entity.unit_number] = {entity = entity, type = tier == 3 and "satellite" or "radio", id = entity.unit_number, tier = tier, range = Config.maxRange[tier], signals = {parameters = {}}, printedWarnings = {}}
+		global.radio.transmitters[entity.unit_number] = {entity = entity, type = tier == 3 and "satellite" or "radio", id = entity.unit_number, tier = tier, range = Config.maxRange[tier], signals = {}, printedWarnings = {}}
 	elseif string.find(entity.name, "radio-receiver", 1, true) then
 		local idx = string.find(entity.name, "%-[^-]+$")
 		local n = string.sub(entity.name, idx+1)
@@ -110,10 +110,11 @@ local function onTick(event)
 						mergeSignals(transmitter, data, net.signals)
 					end
 				end
-				transmitter.signals.parameters = data
+				transmitter.signals = data
 			else
-				transmitter.signals.parameters = {}
+				transmitter.signals = {}
 			end
+			--game.print("Assigned " .. serpent.block(transmitter.signals) .. " to " .. serpent.block(transmitter.entity.position))
 		else
 			radio.transmitters[id] = nil
 		end
@@ -136,11 +137,12 @@ local function onTick(event)
 			local li0 = {}
 			local li = getTransmittersInRange(receiver)
 			for id,transmitter in pairs(li) do
-				mergeState(li0, transmitter.signals.parameters)
+				mergeState(li0, transmitter.signals)
 			end
 			local data = formatSignals(receiver, li0, receiver.entity.get_control_behavior().signals_count)
+			--game.print("Found " .. serpent.block(data))
 			if data and #data > 0 then
-				receiver.entity.get_control_behavior().parameters = {parameters = data}
+				receiver.entity.get_control_behavior().parameters = data
 			else
 				receiver.entity.get_control_behavior().parameters = nil
 			end
