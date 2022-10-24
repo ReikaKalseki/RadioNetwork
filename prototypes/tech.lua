@@ -48,7 +48,7 @@ data:extend(
                 recipe = "radio-transmitter-2"
             }
         },
-        prerequisites = {"telemetry", "speed-module", "advanced-electronics-2"},
+        prerequisites = {"telemetry", "advanced-electronics-2"},
 		upgrade = true,
         unit =
         {

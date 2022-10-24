@@ -29,6 +29,15 @@ else
 	table.insert(data.raw.recipe["radio-transmitter-2"].ingredients, {"steel-plate", 24})
 end
 
+if mods["bobmodules"] then --do not gate behind bobs module system
+	if data.raw.item["insulated-cable"] then
+		table.insert(data.raw.recipe["radio-transmitter-2"].ingredients, {"insulated-cable", 30})
+	end
+else
+	table.insert(data.raw.recipe["radio-transmitter-2"].ingredients, {"speed-module", 2})
+	table.insert(data.raw.technology["circuit-transmitters-2"].prerequisites, "speed-module")
+end
+
 if data.raw.item["titanium-plate"] then
 	table.insert(data.raw.recipe["radio-transmitter-3"].ingredients, {"titanium-plate", 12})
 	addTechDependency("circuit-transmitters-3", "titanium-processing", "titanium-refining")

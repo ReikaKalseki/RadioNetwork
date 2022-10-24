@@ -23,7 +23,7 @@ data:extend(
 		{
 			{"radio-transmitter-1", 1},
 			{"processing-unit", 12},
-			{"speed-module", 2},
+			--{"speed-module", 2},
 		},
 		result = "radio-transmitter-2"
 	},
