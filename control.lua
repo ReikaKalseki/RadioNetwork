@@ -121,11 +121,13 @@ local function onTick(event)
 	 end
 	 
 	 for id,repeater in pairs(radio.repeaters) do
-		if repeater.entity.valid and repeater.entity.energy > 0 then
+		if repeater.entity.valid then
 			repeater.transmitters = {}
-			local li = getTransmittersInRange(repeater)
-			for id,transmitter in pairs(li) do
-				repeater.transmitters[id] = transmitter
+			if repeater.entity.energy > 0 then
+				local li = getTransmittersInRange(repeater)
+				for id,transmitter in pairs(li) do
+					repeater.transmitters[id] = transmitter
+				end
 			end
 		else
 			radio.repeaters[id] = nil

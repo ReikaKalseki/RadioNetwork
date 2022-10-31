@@ -128,6 +128,13 @@ local function createReciever(tier)
 			vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
 			fast_replaceable_group = "radio-equipment",
 			item_slot_count = Config.maxSignals[tier],
+			energy_source =
+			{
+				type = "electric",
+				usage_priority = "secondary-input",
+				buffer_capacity = math.ceil(tier*10) .. "kJ",
+				drain = math.ceil(tier*5) .. "kW",
+			},
 			sprites = 
 			{
 				north = createReceiverSprite(),
