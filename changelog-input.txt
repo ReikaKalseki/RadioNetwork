@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.148.1
+Date: Oct 31 2022
+	- Fixed repeaters unloading themselves from the network on power loss and needing to be mined and replaced
+	- Removed speed module cost from transmitter-2 recipe when BobModules is active
+---------------------------------------------------------------------------------------------------
 Version: 1.102.1
 Date: Mar 27 2021
 	- Update to 1.1
