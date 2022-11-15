@@ -1,0 +1,56 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.101.148
+Date: Oct 31 2022
+  Bugfixes:
+    - Fixed repeaters unloading themselves from the network on power loss and needing to be mined and replaced
+  Removed Features:
+    - Removed speed module cost from transmitter-2 recipe when BobModules is active
+---------------------------------------------------------------------------------------------------
+Version: 1.101.102
+Date: Mar 27 2021
+  Misc Changes:
+    - Update to 1.1
+---------------------------------------------------------------------------------------------------
+Version: 1.018.18
+Date: Aug 10 2020
+  Bugfixes:
+    - Fixed bug in range calculations
+  New Features:
+    - Added setting for comms satellite space science yield, if any
+---------------------------------------------------------------------------------------------------
+Version: 1.018.1
+Date: May 29 2020
+  Misc Changes:
+    - Update to 0.18
+---------------------------------------------------------------------------------------------------
+Version: 1.017.6
+Date: Jun 6 2019
+  Bugfixes:
+    - Fixed bob compat
+---------------------------------------------------------------------------------------------------
+Version: 1.017.1
+Date: Mar 23 2019
+  Misc Changes:
+    - Update to 0.17
+---------------------------------------------------------------------------------------------------
+Version: 1.016.180
+Date: Nov 28 2018
+  Bugfixes:
+    - Fixed crash with Xander mod
+---------------------------------------------------------------------------------------------------
+Version: 1.016.164
+Date: Oct 15 2018
+  Bugfixes:
+    - Fixed script error with repeaters being removed
+---------------------------------------------------------------------------------------------------
+Version: 1.016.160
+Date: Oct 11 2018
+  Bugfixes:
+    - Fixed repeaters ignoring power availability
+  New Features:
+    - Added comms satellite
+  Rebalancing:
+    - Increased default repeater range from 400 to 600
+  Misc Changes:
+    - Changed some recipes
+    - Release
